@@ -1,0 +1,43 @@
+server:
+  port: 8020
+
+  servlet:
+    context-path: /shop
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce_springboot1
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 815482319024-h9ib6vma2irto74j0tt0tc8s2v2vc41m.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+            - email
+            - profile
+          github:
+            client-id: 3b34808fb7ec24f45d48
+            client-secret: c3ab0e745cf0ed625b441e591998461d619137cc
+            scope:
+            - user:email
+            - read:user
+          facebook: 
+            client-id: 2148770235328460
+            client-secret: 9c406160bcf120c3e6c6b936b423a9a8
+            scope:
+            - email
+            - public_profile
+       

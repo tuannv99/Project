@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="~{/fragments.html :: header}">
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul th:replace="~{/fragments.html :: sidebar}"></ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column" >
+
+            <!-- Main Content -->
+            <div class="container-fluid mt-5" >
+                <h1>Update Category</h1>
+                <form th:action="@{'/edit-category/' + ${category.id}}" method="post" th:object="${category}">
+                    <div class="form-group">
+                    <label for="id">CategoryId</label>
+                    <input type="text"
+                        class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="" th:field="*{id}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">CategoryName</label>
+                        <input type="text"
+                        class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="" th:field="*{name}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+        </form>
+            <!-- End of Main Content -->
+        </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Add Modal -->
+    
+      <!-- End Add Modal -->
+
+    <!-- Logout Modal-->
+
+    <div th:replace="~{/fragments.html :: script}">
+
+    </div>
+</body>
+
+</html>

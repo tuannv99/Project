@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="~{/fragments.html :: head}">
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Start Main Top -->
+    <div th:replace="~{/fragments.html :: main-top}"></div>
+    <!-- End Main Top -->
+
+
+   <!-- Start Main Top -->
+    <header th:replace="~{/fragments.html :: main-header}"></header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+    <div th:replace="~{/fragments.html :: top-search}"></div>
+<!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Product Detail</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                        <li class="breadcrumb-item active"> Product Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start Shop Detail  -->
+    <div class="shop-detail-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-6" th:each=" product: ${product}">
+                    <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active"> <img class="d-block w-100" th:src="@{'data:image/jpeg;base64,' + ${product.image}}" alt="First slide"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-6" >
+                    <form th:action="@{/add-to-cart}" method="post">
+                    <div class="single-product-details">
+                        <h2 th:text="${product.name}"></h2>
+                        <h5 th:text=" '$' + ${product.costPrice}">$30.75</h5>
+						<h4>Short Description:</h4>
+						<p th:text="${product.description}"></p>
+
+                            <div class="price-box-bar">
+							<div class="cart-and-bay-btn">
+                                <input type="hidden" th:value="${product.id}" name="id">
+                                <input class="cart" size="200px" value="Add to Cart" style="background-color: #b0b435 ;font-weight: bold;" type="submit"></input>
+							</div>
+						</div>
+						</div>
+                    </div>
+                </form>
+                </div>
+            </div>
+			
+            <div class="row my-5">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Related Products</h1>
+                    </div>
+                    <div class="featured-products-box owl-carousel owl-theme">
+                        <div class="item" th:each=" products: ${products}">
+                            <div class="products-single fix">
+                                <form th:action="@{/add-to-cart}" method="post">
+                                <div class="box-img-hover">
+                                    <img th:src="@{'data:image/jpeg;base64, ' + ${products.image}}" class="img-fluid" style="height: 220px;" alt="Image">
+                                    <div class="mask-icon">
+                                        <ul>
+                                            <li><a th:href="@{'/find-product/' + ${products.id}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        </ul>
+                                        <input type="hidden" th:value="${products.id}" name="id">
+                                        <input class="cart" value="Add to Cart" style="background-color: #b0b435 ;font-weight: bold;" type="submit"></input>
+                                    </div>
+                                </div>
+                                <div class="why-text">
+                                    <h4 th:text="${products.name}"></h4>
+                                    <h5 th:text=" '$' +  ${products.costPrice}"></h5>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Cart -->
+
+   <!-- Start Feed  -->
+    <!-- <div th:replace="~{/fragments.html :: instagram-box}"></div> -->
+
+<!-- End Feed  -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{/fragments.html :: footer}"></footer>
+        
+
+    <div th:replace="~{/fragments.html :: script}"></div>
+</body>
+
+</html>
