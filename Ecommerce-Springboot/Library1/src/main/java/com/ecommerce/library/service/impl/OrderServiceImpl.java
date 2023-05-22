@@ -54,6 +54,7 @@ public class OrderServiceImpl implements OrderService{
 			cartItemRepository.delete(item);
 		}
 		order.setOrderDetails(orderDetailsList);
+//		order.setShippingFee();
 		cart.setCartItem(new HashSet<>());
 		cart.setTotalItems(0);
 		cart.setTotalPrices(0.0);

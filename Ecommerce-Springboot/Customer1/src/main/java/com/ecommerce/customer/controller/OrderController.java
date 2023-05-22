@@ -38,7 +38,9 @@ public class OrderController {
 			return "account-info-change";
 		}
 		
-		
+		Order order = new Order();
+		order.setShippingFee(2.0);
+		model.addAttribute("shippingFee", order.getShippingFee());
 		model.addAttribute("customer", customer);
 		ShoppingCart cart = customer.getShoppingCart();
 		model.addAttribute("cart", cart);

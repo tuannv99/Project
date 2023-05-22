@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ecommerce.library.model.Customer;
+import com.ecommerce.library.model.Order;
 import com.ecommerce.library.model.Product;
 import com.ecommerce.library.model.ShoppingCart;
 import com.ecommerce.library.service.CustomerService;

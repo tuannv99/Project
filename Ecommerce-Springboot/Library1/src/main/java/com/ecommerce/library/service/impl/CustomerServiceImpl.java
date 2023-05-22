@@ -69,6 +69,13 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepository.save(customer1);
 	}
 
+	@Override
+	public Customer changePassword(Customer customer, String newPassword) {
+		Customer customerChange = customerRepository.findByUsername(customer.getUsername());
+		customerChange.setPassword(passwordEncoder.encode(newPassword));
+		return customerRepository.save(customerChange);
+	}
+
 
 
 }

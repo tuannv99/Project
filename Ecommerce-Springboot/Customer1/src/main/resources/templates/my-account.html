@@ -83,15 +83,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12">
+                        <div class="col-lg-4 col-md-12" th:if="${customer.password != null}">
                             <div class="account-box">
                                 <div class="service-box">
                                     <div class="service-icon">
-                                        <a href="#"> <i class="fa fa-location-arrow"></i> </a>
+                                        <a th:href="@{/change-password}"> <i class="fa fa-location-arrow"></i> </a>
                                     </div>
                                     <div class="service-desc">
-                                        <h4>Your Addresses</h4>
-                                        <p>Edit addresses for orders and gifts</p>
+                                        <h4>Change Password</h4>
+                                        <p>Change your password here</p>
                                     </div>
                                 </div>
                             </div>
